@@ -5,6 +5,7 @@ import 'package:get_storage/get_storage.dart';
 
 
 import 'app/app.dart';
+import 'services/app_services.dart';
 
 void main() async{
 WidgetsFlutterBinding.ensureInitialized();

@@ -19,8 +19,8 @@ class TestMobileCreonitRepository {
     }).toList();
   }
 
-  Future<List<Product>> getProduct() async {
-    final data = await _apiClient.productFetch();
+  Future<List<Product>> getProduct({int limit = 0}) async {
+    final data = await _apiClient.productFetch(limit: limit);
     return data.map((item) {
       return Product(
         title: item.title,

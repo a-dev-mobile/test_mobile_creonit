@@ -48,10 +48,11 @@ class VueStudyApiClient {
     }).toList();
   }
 
-  Future<List<Product>> productFetch() async {
+  Future<List<Product>> productFetch({int limit = 0}) async {
     final productRequest = Uri.https(
       _baseUrl,
       '/api/products',
+       <String, String>{'limit': limit.toString()},
     );
 
     final productResponse = await _httpClient.get(productRequest);

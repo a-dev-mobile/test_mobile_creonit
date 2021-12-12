@@ -12,7 +12,7 @@ void main() async {
 
   print('===================');
 
-  List<Product> product = await apiClient.productFetch();
+  List<Product> product = await apiClient.productFetch(limit:  5);
 
   print('product.toString()');
   print(product.toString());

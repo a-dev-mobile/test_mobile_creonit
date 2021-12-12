@@ -9,6 +9,6 @@ void main() async {
 
   print(listCategory.toString());
   print('===========================');
-  var listProduct = await appRepository.getProduct();
+  var listProduct = await appRepository.getProduct(limit: 2);
   print(listProduct.toString());
 }
