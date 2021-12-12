@@ -5,15 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "vue_study_api",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "vue_study_api (profile mode)",
-            "request": "launch",
+            "name": "Dart",
             "type": "dart",
-            "flutterMode": "profile"
-        }
+            "request": "launch",
+            "program": "test/vue_study_api_test.dart"
+        },
+        
+       
     ]
 }

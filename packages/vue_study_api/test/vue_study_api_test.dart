@@ -1,4 +1,5 @@
-import 'package:vue_study_api/src/models/category.dart';
+
+import 'package:vue_study_api/src/models/models.dart';
 import 'package:vue_study_api/src/vue_study_api_client.dart';
 
 void main() async {
@@ -8,4 +9,12 @@ void main() async {
 
   print('category.toString()');
   print(category.toString());
+
+  print('===================');
+
+  List<Product> product = await apiClient.productFetch();
+
+  print('product.toString()');
+  print(product.toString());
+
 }
