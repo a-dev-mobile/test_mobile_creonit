@@ -16,7 +16,7 @@ class CategoryNotFoundFailure implements Exception {}
 class VueStudyApiClient {
   static const _baseUrl = 'vue-study.skillbox.cc';
   final http.Client _httpClient;
-  var logger = Logger();
+  var _logger = Logger();
 
   VueStudyApiClient({http.Client? httpClient})
       : _httpClient = httpClient ?? http.Client();
@@ -36,7 +36,7 @@ class VueStudyApiClient {
     try {
       categoryJson = jsonDecode(categoryResponse.body)['items'] as List;
     } catch (e) {
-      logger.e(e);
+      _logger.e(e);
       throw CategoryRequestFailure();
     }
     if (categoryJson.isEmpty) {
@@ -63,7 +63,7 @@ class VueStudyApiClient {
     try {
       productJson = jsonDecode(productResponse.body)['items'] as List;
     } catch (e) {
-      logger.e(e);
+      _logger.e(e);
       throw ProductRequestFailure();
     }
     if (productJson.isEmpty) {
