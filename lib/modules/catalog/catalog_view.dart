@@ -41,8 +41,8 @@ class CategoryListItem extends StatelessWidget {
         title: Text(title),
         trailing: const Icon(Icons.chevron_right),
         onTap: () {
-          print('asdasdasd');
-          Get.rootDelegate.toNamed(Routes.PRODUCT(title));
+   
+          Get.rootDelegate.toNamed(Routes.PRODUCT);
         },
         // dense: true,
       ),

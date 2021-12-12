@@ -13,9 +13,9 @@ class CatalogController extends GetxController {
   Future<void> _categoryFetched() async {
     try {
       isLoad.value = true;
-      await Future.delayed(Duration(seconds: 5), () {
-        print(" This line is execute after 5 seconds");
-      });
+      // await Future.delayed(Duration(seconds: 5), () {
+      //   print(" This line is execute after 5 seconds");
+      // });
       listCategory.value = await _repository.getCategory();
       isLoad.value = false;
     } catch (e) {

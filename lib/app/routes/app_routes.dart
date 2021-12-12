@@ -10,11 +10,12 @@ abstract class Routes {
   static const DASHBOARD = _Paths.HOME + _Paths.DASHBOARD;
   static const PROFILE = _Paths.HOME + _Paths.PROFILE;
   static const CATALOG = _Paths.HOME + _Paths.CATALOG;
+  static const PRODUCT = _Paths.HOME + _Paths.CATALOG+ _Paths.PRODUCT;
 
   static const FAVORIT = _Paths.HOME + _Paths.FAVORIT;
   static const CART = _Paths.HOME + _Paths.CART;
   
-  static String PRODUCT(String titleCategory) => '$CATALOG/$titleCategory';
+
 }
 
 abstract class _Paths {
@@ -25,6 +26,6 @@ abstract class _Paths {
   static const PROFILE = '/profile';
 
   static const SPLASH = '/splash';
-  static const PRODUCT = '/:titleCategory';
+  static const PRODUCT = '/product';
   static const DASHBOARD = '/dashboard';
 }

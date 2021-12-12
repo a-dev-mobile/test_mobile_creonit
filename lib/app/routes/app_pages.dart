@@ -40,11 +40,9 @@ class AppPages {
         children: [
           GetPage(
               name: _Paths.HOME,
-                // participatesInRootNavigator: true,
+   
               page: () => const HomePage(),
-              // preventDuplicates: true,
-
-              // participatesInRootNavigator: true,
+          preventDuplicates: true,
               bindings: [
                 HomeBinding(),
               ],
