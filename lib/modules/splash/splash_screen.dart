@@ -56,7 +56,8 @@ class _SplashScreenState extends State<SplashScreen>
 
   void navigateToNextScreen() {
     //  Navigator.of(context).pushReplacementNamed(Routes.welcome);
-    Get.offAllNamed(Routes.HOME);
+    // Get.offAllNamed(Routes.HOME);
+        Get.rootDelegate.toNamed(Routes.HOME);
     //context.read<NavigatorCubit>().showWelcome();
   }
 

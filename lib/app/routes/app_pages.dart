@@ -1,10 +1,20 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:get/get.dart';
+import 'package:test_mobile_creonit/modules/cart/cart_view.dart';
+import 'package:test_mobile_creonit/modules/catalog/catalog_binding.dart';
+import 'package:test_mobile_creonit/modules/catalog/catalog_view.dart';
+import 'package:test_mobile_creonit/modules/dashboard/dashboard_view.dart';
+import 'package:test_mobile_creonit/modules/favorit/favorit_view.dart';
 import 'package:test_mobile_creonit/modules/home/home_binding.dart';
-import 'package:test_mobile_creonit/modules/home/home_page.dart';
-import 'package:test_mobile_creonit/modules/splash/splash_screen.dart';
+import 'package:test_mobile_creonit/modules/home/home_view.dart';
+import 'package:test_mobile_creonit/modules/product/product_binding.dart';
+import 'package:test_mobile_creonit/modules/product/product_view.dart';
 
+import 'package:test_mobile_creonit/modules/profile/profile_view.dart';
+import 'package:test_mobile_creonit/modules/root/root_binding.dart';
+import 'package:test_mobile_creonit/modules/root/root_view.dart';
+import 'package:test_mobile_creonit/modules/splash/splash_screen.dart';
 
 part 'app_routes.dart';
 
@@ -17,18 +27,63 @@ class AppPages {
     GetPage(
       name: _Paths.SPLASH,
       page: () => const SplashScreen(),
-    //   bindings: [
-    //     HomeBinding(),
-    //   ],
+      //   bindings: [
+      //     HomeBinding(),
+      //   ],
     ),
     GetPage(
-      name: _Paths.HOME,
-      page: () => const HomePage(),
-      bindings: [
-        HomeBinding(),
-      ],
-    
-    
-    ),
+        name: '/',
+        page: () => const RootView(),
+        binding: RootBinding(),
+        participatesInRootNavigator: true,
+        preventDuplicates: true,
+        children: [
+          GetPage(
+              name: _Paths.HOME,
+                // participatesInRootNavigator: true,
+              page: () => const HomePage(),
+              // preventDuplicates: true,
+
+              // participatesInRootNavigator: true,
+              bindings: [
+                HomeBinding(),
+              ],
+              children: [
+                GetPage(
+                  name: _Paths.DASHBOARD,
+                  page: () => const DashboardView(),
+                  title: 'Главная',
+                ),
+                GetPage(
+                  name: _Paths.CATALOG,
+                  page: () => const CatalogView(),
+                  binding: CatalogBinding(),
+                  title: 'Каталог',
+                  children: [
+                    GetPage(
+                      name: _Paths.PRODUCT,
+                      page: () => const ProductView(),
+                      transition: Transition.zoom,
+                      binding: ProductBinding(),
+                    )
+                  ],
+                ),
+                GetPage(
+                  name: _Paths.FAVORIT,
+                  page: () => const FavoritView(),
+                  title: 'Избранное',
+                ),
+                GetPage(
+                  name: _Paths.CART,
+                  page: () => const CartView(),
+                  title: 'Корзина',
+                ),
+                GetPage(
+                  name: _Paths.PROFILE,
+                  page: () => const ProfileView(),
+                  title: 'Профиль',
+                ),
+              ]),
+        ]),
   ];
 }

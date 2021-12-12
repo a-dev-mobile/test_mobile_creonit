@@ -4,8 +4,8 @@ import 'package:test_mobile_creonit/core/utils/app_storage.dart';
 import 'package:test_mobile_creonit_repository/test_mobile_creonit_repository.dart';
 
 class CatalogController extends GetxController {
-  final TestMobileCreonitRepository _repository;
-  CatalogController(this._repository);
+  late final TestMobileCreonitRepository _repository;
+
   RxList<Category> listCategory = <Category>[].obs;
 
   var isLoad = false.obs;
@@ -25,6 +25,10 @@ class CatalogController extends GetxController {
 
   @override
   void onInit() {
+
+
+
+    _repository = TestMobileCreonitRepository();
     _categoryFetched();
 
 // AppStorage().setString('key', listCategory.value.from)

@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return GetMaterialApp.router(
           onGenerateTitle: (BuildContext context) =>
               'Test mobile creonit',
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
          
        
           themeMode: ThemeMode.light,
-          initialRoute: AppPages.INITIAL,
+          // initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
           
           theme: AppTheme.lightThemeData(context),
