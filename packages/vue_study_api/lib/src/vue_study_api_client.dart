@@ -12,13 +12,13 @@ class CategoryRequestFailure implements Exception {}
 class CategoryNotFoundFailure implements Exception {}
 
 class VueStudyApiClient {
-  static const _baseUrl = 'https://vue-study.skillbox.cc/';
+  static const _baseUrl = 'vue-study.skillbox.cc';
   final http.Client _httpClient;
 
   VueStudyApiClient({http.Client? httpClient})
       : _httpClient = httpClient ?? http.Client();
 
-  Future<Category> categoryFetch() async {
+  Future<List<Category>> categoryFetch() async {
     final categoryRequest = Uri.https(
       _baseUrl,
       '/api/productCategories',
@@ -30,12 +30,14 @@ class VueStudyApiClient {
       throw CategoryRequestFailure();
     }
 
-    final categoryJson = jsonDecode(categoryResponse.body) as List;
+    final categoryJson = jsonDecode(categoryResponse.body)['items'] as List;
 
     if (categoryJson.isEmpty) {
       throw CategoryNotFoundFailure();
     }
 
-    return Category.fromJson(categoryJson.first as Map<String, dynamic>);
+    return categoryJson.map((dynamic json) {
+      return Category.fromJson(json as Map<String, dynamic>); 
+    }).toList();
   }
 }
