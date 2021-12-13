@@ -13,11 +13,11 @@ class RootView extends GetView<RootController> {
       builder: (context, delegate, current) {
         final title = current?.location;
         return Scaffold(
-          appBar: AppBar(
-            title: Text(title ?? ''),
-            // title: Text((current!.currentPage!.title) ?? ''),
-            centerTitle: true,
-          ),
+          // appBar: AppBar(
+          //   title: Text(title ?? ''),
+          //   // title: Text((current!.currentPage!.title) ?? ''),
+          //   centerTitle: true,
+          // ),
           body: GetRouterOutlet(
             initialRoute: Routes.HOME,
           ),

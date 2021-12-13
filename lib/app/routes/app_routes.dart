@@ -11,7 +11,7 @@ abstract class Routes {
   static const PROFILE = _Paths.HOME + _Paths.PROFILE;
   static const CATALOG = _Paths.HOME + _Paths.CATALOG;
   static const PRODUCT = _Paths.HOME + _Paths.CATALOG+ _Paths.PRODUCT;
-
+  // static String PRODUCT(String titleCategory) => '$CATALOG/$titleCategory';
   static const FAVORIT = _Paths.HOME + _Paths.FAVORIT;
   static const CART = _Paths.HOME + _Paths.CART;
   
@@ -26,6 +26,6 @@ abstract class _Paths {
   static const PROFILE = '/profile';
 
   static const SPLASH = '/splash';
-  static const PRODUCT = '/product';
+  static const PRODUCT = '/:titleCategory';
   static const DASHBOARD = '/dashboard';
 }

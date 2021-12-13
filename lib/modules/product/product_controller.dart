@@ -3,11 +3,13 @@ import 'package:test_mobile_creonit/core/utils/app_log.dart';
 import 'package:test_mobile_creonit_repository/test_mobile_creonit_repository.dart';
 
 class ProductController extends GetxController {
- late final TestMobileCreonitRepository _repository;
-
-  RxList<Product> listProduct = <Product>[].obs;
 
   var isLoad = false.obs;
+
+
+ late final TestMobileCreonitRepository _repository;
+  RxList<Product> listProduct = <Product>[].obs;
+
 
   Future<void> _productFetched() async {
     try {

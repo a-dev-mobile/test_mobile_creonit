@@ -50,18 +50,19 @@ class AppPages {
                 GetPage(
                   name: _Paths.DASHBOARD,
                   page: () => const DashboardView(),
-                  title: 'Главная',
+        
                 ),
                 GetPage(
                   name: _Paths.CATALOG,
+         
                   page: () => const CatalogView(),
                   binding: CatalogBinding(),
-                  title: 'Каталог',
+              
                   children: [
                     GetPage(
                       name: _Paths.PRODUCT,
                       page: () => const ProductView(),
-                      transition: Transition.zoom,
+                      transition: Transition.rightToLeft,
                       binding: ProductBinding(),
                     )
                   ],
@@ -69,17 +70,17 @@ class AppPages {
                 GetPage(
                   name: _Paths.FAVORIT,
                   page: () => const FavoritView(),
-                  title: 'Избранное',
+         
                 ),
                 GetPage(
                   name: _Paths.CART,
                   page: () => const CartView(),
-                  title: 'Корзина',
+              
                 ),
                 GetPage(
                   name: _Paths.PROFILE,
                   page: () => const ProfileView(),
-                  title: 'Профиль',
+            
                 ),
               ]),
         ]),

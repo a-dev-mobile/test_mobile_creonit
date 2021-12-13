@@ -6,17 +6,17 @@ import 'package:test_mobile_creonit_repository/test_mobile_creonit_repository.da
 class CatalogController extends GetxController {
   late final TestMobileCreonitRepository _repository;
 
-  RxList<Category> listCategory = <Category>[].obs;
+  RxList<Category> categories = <Category>[].obs;
 
   var isLoad = false.obs;
 
-  Future<void> _categoryFetched() async {
+  Future<void> categoryFetched() async {
     try {
       isLoad.value = true;
       // await Future.delayed(Duration(seconds: 5), () {
       //   print(" This line is execute after 5 seconds");
       // });
-      listCategory.value = await _repository.getCategory();
+      categories.value = await _repository.getCategory();
       isLoad.value = false;
     } catch (e) {
       logger.e(e);
@@ -29,10 +29,15 @@ class CatalogController extends GetxController {
 
 
     _repository = TestMobileCreonitRepository();
-    _categoryFetched();
+    categoryFetched();
 
-// AppStorage().setString('key', listCategory.value.from)
+
 
     super.onInit();
+  }
+  @override
+  void onClose() {
+        Get.printInfo(info: 'category: onClose');
+    super.onClose();
   }
 }
