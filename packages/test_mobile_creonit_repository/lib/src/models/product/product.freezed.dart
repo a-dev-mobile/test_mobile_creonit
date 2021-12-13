@@ -25,11 +25,15 @@ class _$ProductTearOff {
       {required String title,
       required double price,
       required String imageUrl,
+      required int id,
+      bool isInShopCart = false,
       required List<Colors> colors}) {
     return _Product(
       title: title,
       price: price,
       imageUrl: imageUrl,
+      id: id,
+      isInShopCart: isInShopCart,
       colors: colors,
     );
   }
@@ -47,6 +51,8 @@ mixin _$Product {
   String get title => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  bool get isInShopCart => throw _privateConstructorUsedError;
   List<Colors> get colors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,7 +64,13 @@ mixin _$Product {
 abstract class $ProductCopyWith<$Res> {
   factory $ProductCopyWith(Product value, $Res Function(Product) then) =
       _$ProductCopyWithImpl<$Res>;
-  $Res call({String title, double price, String imageUrl, List<Colors> colors});
+  $Res call(
+      {String title,
+      double price,
+      String imageUrl,
+      int id,
+      bool isInShopCart,
+      List<Colors> colors});
 }
 
 /// @nodoc
@@ -74,6 +86,8 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
     Object? title = freezed,
     Object? price = freezed,
     Object? imageUrl = freezed,
+    Object? id = freezed,
+    Object? isInShopCart = freezed,
     Object? colors = freezed,
   }) {
     return _then(_value.copyWith(
@@ -89,6 +103,14 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      isInShopCart: isInShopCart == freezed
+          ? _value.isInShopCart
+          : isInShopCart // ignore: cast_nullable_to_non_nullable
+              as bool,
       colors: colors == freezed
           ? _value.colors
           : colors // ignore: cast_nullable_to_non_nullable
@@ -102,7 +124,13 @@ abstract class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
   factory _$ProductCopyWith(_Product value, $Res Function(_Product) then) =
       __$ProductCopyWithImpl<$Res>;
   @override
-  $Res call({String title, double price, String imageUrl, List<Colors> colors});
+  $Res call(
+      {String title,
+      double price,
+      String imageUrl,
+      int id,
+      bool isInShopCart,
+      List<Colors> colors});
 }
 
 /// @nodoc
@@ -119,6 +147,8 @@ class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
     Object? title = freezed,
     Object? price = freezed,
     Object? imageUrl = freezed,
+    Object? id = freezed,
+    Object? isInShopCart = freezed,
     Object? colors = freezed,
   }) {
     return _then(_Product(
@@ -134,6 +164,14 @@ class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      isInShopCart: isInShopCart == freezed
+          ? _value.isInShopCart
+          : isInShopCart // ignore: cast_nullable_to_non_nullable
+              as bool,
       colors: colors == freezed
           ? _value.colors
           : colors // ignore: cast_nullable_to_non_nullable
@@ -149,6 +187,8 @@ class _$_Product implements _Product {
       {required this.title,
       required this.price,
       required this.imageUrl,
+      required this.id,
+      this.isInShopCart = false,
       required this.colors});
 
   factory _$_Product.fromJson(Map<String, dynamic> json) =>
@@ -161,11 +201,16 @@ class _$_Product implements _Product {
   @override
   final String imageUrl;
   @override
+  final int id;
+  @JsonKey()
+  @override
+  final bool isInShopCart;
+  @override
   final List<Colors> colors;
 
   @override
   String toString() {
-    return 'Product(title: $title, price: $price, imageUrl: $imageUrl, colors: $colors)';
+    return 'Product(title: $title, price: $price, imageUrl: $imageUrl, id: $id, isInShopCart: $isInShopCart, colors: $colors)';
   }
 
   @override
@@ -176,6 +221,9 @@ class _$_Product implements _Product {
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.isInShopCart, isInShopCart) &&
             const DeepCollectionEquality().equals(other.colors, colors));
   }
 
@@ -185,6 +233,8 @@ class _$_Product implements _Product {
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(imageUrl),
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(isInShopCart),
       const DeepCollectionEquality().hash(colors));
 
   @JsonKey(ignore: true)
@@ -203,6 +253,8 @@ abstract class _Product implements Product {
       {required String title,
       required double price,
       required String imageUrl,
+      required int id,
+      bool isInShopCart,
       required List<Colors> colors}) = _$_Product;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
@@ -213,6 +265,10 @@ abstract class _Product implements Product {
   double get price;
   @override
   String get imageUrl;
+  @override
+  int get id;
+  @override
+  bool get isInShopCart;
   @override
   List<Colors> get colors;
   @override

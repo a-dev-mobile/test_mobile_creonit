@@ -1,7 +1,9 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:get/get.dart';
-import 'package:test_mobile_creonit/modules/cart/cart_view.dart';
+import 'package:test_mobile_creonit/modules/cart/shop_cart_binding.dart';
+import 'package:test_mobile_creonit/modules/cart/shop_cart_controller.dart';
+import 'package:test_mobile_creonit/modules/cart/shop_cart_view.dart';
 import 'package:test_mobile_creonit/modules/catalog/catalog_binding.dart';
 import 'package:test_mobile_creonit/modules/catalog/catalog_view.dart';
 import 'package:test_mobile_creonit/modules/dashboard/dashboard_view.dart';
@@ -75,7 +77,8 @@ class AppPages {
                 GetPage(
                   name: _Paths.CART,
                   page: () => const CartView(),
-              
+                  binding: ShopCartBinding()
+                 
                 ),
                 GetPage(
                   name: _Paths.PROFILE,

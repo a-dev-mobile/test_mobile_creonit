@@ -28,7 +28,7 @@ class TestMobileCreonitRepository {
           return Colors(title: item.title, code: item.code);
         }).toList(),
         imageUrl: item.image.file.url,
-        price: item.price,
+        price: item.price, id: item.id,
       );
     }).toList();
   }

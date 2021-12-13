@@ -10,6 +10,7 @@ abstract class Routes {
   static const DASHBOARD = _Paths.HOME + _Paths.DASHBOARD;
   static const PROFILE = _Paths.HOME + _Paths.PROFILE;
   static const CATALOG = _Paths.HOME + _Paths.CATALOG;
+
   static const PRODUCT = _Paths.HOME + _Paths.CATALOG+ _Paths.PRODUCT;
   // static String PRODUCT(String titleCategory) => '$CATALOG/$titleCategory';
   static const FAVORIT = _Paths.HOME + _Paths.FAVORIT;

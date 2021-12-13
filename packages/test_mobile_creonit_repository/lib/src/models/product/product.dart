@@ -10,6 +10,9 @@ class Product with _$Product {
     required String title,
     required double price,
     required String imageUrl,
+    required int id,
+    @Default(false) bool isInShopCart,
+
     required List<Colors> colors,
   }) = _Product;
 
