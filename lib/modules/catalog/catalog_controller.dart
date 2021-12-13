@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'package:test_mobile_creonit/core/utils/app_log.dart';
+import 'package:test_mobile_creonit/services/app_services.dart';
 
 import 'package:test_mobile_creonit_repository/test_mobile_creonit_repository.dart';
 
@@ -13,7 +14,6 @@ class CatalogController extends GetxController {
   var isLoad = false.obs;
 
   Future<void> categoryFetched() async {
-     
     isLoad.value = true;
     try {
       // await Future.delayed(Duration(seconds: 5), () {
@@ -21,7 +21,8 @@ class CatalogController extends GetxController {
       // });
       categories.value = await _repository.getCategory();
 
-      GetStorage().write('categories', categories.map((e) => e.toJson()).toList());
+      GetStorage()
+          .write('categories', categories.map((e) => e.toJson()).toList());
 
       isLoad.value = false;
     } catch (e) {
@@ -31,15 +32,16 @@ class CatalogController extends GetxController {
 
   @override
   void onInit() {
+    AppServices.to.productInShopCart=[];
+
     List? storedCategories = GetStorage().read<List>('categories');
     if (storedCategories != null) {
       categories =
           storedCategories.map((e) => Category.fromJson(e)).toList().obs;
     } else {
-    
       categoryFetched();
     }
-
+    //clear productInShopCart
 
     super.onInit();
   }

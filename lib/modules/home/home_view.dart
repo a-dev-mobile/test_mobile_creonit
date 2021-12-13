@@ -12,13 +12,11 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return GetRouterOutlet.builder(
-
-      
       builder: (context, delegate, currentRoute) {
         final currentLocation = currentRoute?.location;
         var currentIndex = 0;
 
-         if (currentLocation?.startsWith(Routes.DASHBOARD) == true) {
+        if (currentLocation?.startsWith(Routes.DASHBOARD) == true) {
           currentIndex = 0;
         }
         if (currentLocation?.startsWith(Routes.CATALOG) == true) {
@@ -34,10 +32,10 @@ class HomePage extends GetView<HomeController> {
           currentIndex = 4;
         }
         return Scaffold(
-            //  appBar: AppBar(title: const Text('Главная'), ),
+          //  appBar: AppBar(title: const Text('Главная'), ),
           body: GetRouterOutlet(
             initialRoute: Routes.DASHBOARD,
-              anchorRoute: Routes.HOME,
+            anchorRoute: Routes.HOME,
             key: Get.nestedKey(Routes.HOME),
           ),
           bottomNavigationBar: BottomNavigationBar(
@@ -59,15 +57,16 @@ class HomePage extends GetView<HomeController> {
                 case 4:
                   delegate.toNamed(Routes.PROFILE);
                   break;
-                               default:
+                default:
               }
             },
-              unselectedItemColor: ConstColor.gray_56,
-              selectedItemColor: ConstColor.primary_black,
-               showSelectedLabels: true,  
-  showUnselectedLabels: true,
+            unselectedItemColor: ConstColor.gray_56,
+            selectedItemColor: ConstColor.primary_black,
+            showSelectedLabels: true,
+            showUnselectedLabels: true,
             items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home), label: 'Главная'),
               BottomNavigationBarItem(
                 icon: Icon(Icons.widgets),
                 label: 'Каталог',
@@ -90,16 +89,14 @@ class HomePage extends GetView<HomeController> {
       },
     );
   }
-}
 
-    
 //     return Obx(() => Scaffold(
 //           body: IndexedStack(
 //             index: controller.selectTab.value,
 //             children: _tabs,
 //           ),
 //           bottomNavigationBar: Container(
-            
+
 //             decoration: const BoxDecoration(
 //                 border: Border(
 //                     top: BorderSide(
@@ -112,14 +109,14 @@ class HomePage extends GetView<HomeController> {
 //               onTap: (index) {
 //                 controller.setSelectItem(index: index);
 //               },
-//                 showSelectedLabels: true,  
+//                 showSelectedLabels: true,
 //   showUnselectedLabels: true,
 //               items: const [
 //                 BottomNavigationBarItem(
 //                     icon: Icon(Icons.home),
-                    
+
 //                     label: 'Главная'),
-                    
+
 //                 BottomNavigationBarItem(
 //                   icon: Icon(Icons.widgets),
 //                   label: 'Каталог',
@@ -142,3 +139,4 @@ class HomePage extends GetView<HomeController> {
 //         ));
 //   }
 // }
+}

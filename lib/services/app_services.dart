@@ -8,7 +8,7 @@ class AppServices extends GetxService {
   static AppServices get to => Get.find();
   String selectedCategory = '';
   int categoryId = 0;
-  RxList<Product> productInShopCart = <Product>[].obs;
+  List<Product> productInShopCart = <Product>[];
 
 
 

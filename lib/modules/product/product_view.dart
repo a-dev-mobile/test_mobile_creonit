@@ -5,6 +5,7 @@ import 'package:test_mobile_creonit/app/routes/app_pages.dart';
 import 'package:test_mobile_creonit/core/constants/colors.dart';
 import 'package:test_mobile_creonit/core/utils/app_log.dart';
 import 'package:test_mobile_creonit/services/app_services.dart';
+import 'package:test_mobile_creonit_repository/test_mobile_creonit_repository.dart';
 
 import 'product_controller.dart';
 
@@ -88,11 +89,18 @@ class ProductView extends GetWidget<ProductController> {
                                 ),
                                 IconButton(
                                     onPressed: () {
-                                      AppServices.to.productInShopCart.add(e);
+                                      
+                                      final int index = controller.listProduct
+                                          .indexWhere(
+                                              (element) => element.id == e.id);
 
-                                      controller.listProduct[e.id - 1] =
+                                      controller.listProduct[index] =
                                           e.copyWith(
                                               isInShopCart: !e.isInShopCart);
+
+                                      AppServices.to.productInShopCart.add(e);
+                                      Get.snackbar(
+                                          'Добавлено в корзину', e.title);
                                     },
                                     icon: Icon(Icons.shopping_cart,
                                         color: e.isInShopCart
@@ -124,7 +132,7 @@ class FiltersSortingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 40,
       child: Row(
         children: [
@@ -138,7 +146,7 @@ class FiltersSortingWidget extends StatelessWidget {
                     color: ConstColor.primary_black,
                   ),
                 ),
-                Text(
+                const Text(
                   'Фильтры',
                 )
               ],
@@ -161,7 +169,7 @@ class FiltersSortingWidget extends StatelessWidget {
                     color: ConstColor.primary_black,
                   ),
                 ),
-                Text('По популярности'),
+                const Text('По популярности'),
               ],
             ),
           )
