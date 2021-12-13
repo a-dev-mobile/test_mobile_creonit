@@ -9,6 +9,7 @@ class ConstColor {
   static const Color primary_black = Color(0xFF414951);
   static  Color gray_56 = const Color(0xFF8A8884).withOpacity(0.56);
   static  Color gray_8 = const Color(0xFF8A8884).withOpacity(0.08);
+  static  Color divider = const Color(0xFF8A8884).withOpacity(0.24);
   static const Color red = Color(0xFFE30613);
 }
 

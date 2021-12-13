@@ -21,23 +21,20 @@ class CatalogController extends GetxController {
     } catch (e) {
       logger.e(e);
     }
+    categories.value[1].toJson()
   }
 
   @override
   void onInit() {
-
-
-
     _repository = TestMobileCreonitRepository();
     categoryFetched();
 
-
-
     super.onInit();
   }
+
   @override
   void onClose() {
-        Get.printInfo(info: 'category: onClose');
+    Get.printInfo(info: 'category: onClose');
     super.onClose();
   }
 }

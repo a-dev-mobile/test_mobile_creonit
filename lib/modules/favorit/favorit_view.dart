@@ -6,9 +6,9 @@ class FavoritView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
-     
-      body: Center(child: Text('Экран % Избранное % в разработке. ',style: TextStyle(fontSize: 24),textAlign: TextAlign.center,),)
+    return  Scaffold(
+     appBar: AppBar(title: const Text( 'Избранное'), ),
+      body: const Center(child: Text('Экран % Избранное % в разработке. ',style: TextStyle(fontSize: 24),textAlign: TextAlign.center,),)
      
     );
   }

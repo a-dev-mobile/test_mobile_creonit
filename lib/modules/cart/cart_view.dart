@@ -6,8 +6,8 @@ class CartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-     
+    return  Scaffold(
+          appBar: AppBar(title: const Text( 'Корзина'), ),
       body: Center(child: Text('Экран % Корзина % в разработке. ',style: TextStyle(fontSize: 24),textAlign: TextAlign.center,),)
      
     );

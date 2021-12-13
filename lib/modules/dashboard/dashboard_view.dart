@@ -6,8 +6,8 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-     
+    return Scaffold(
+                  appBar: AppBar(title: const Text('Главная'), ),
       body: Center(child: Text('Экран % Главное % в разработке. ',style: TextStyle(fontSize: 24),textAlign: TextAlign.center,),)
      
     );

@@ -21,7 +21,7 @@ class VueStudyApiClient {
   VueStudyApiClient({http.Client? httpClient})
       : _httpClient = httpClient ?? http.Client();
 
-  Future<List<Category>> categoryFetch() async {
+  Future<List<Category>> fetchCategoies() async {
     final categoryRequest = Uri.https(
       _baseUrl,
       '/api/productCategories',
@@ -48,11 +48,15 @@ class VueStudyApiClient {
     }).toList();
   }
 
-  Future<List<Product>> productFetch({int limit = 0}) async {
+  Future<List<Product>> fetchProducts(
+      {int limit = 0, int categoryId = 0}) async {
     final productRequest = Uri.https(
       _baseUrl,
       '/api/products',
-       <String, String>{'limit': limit.toString()},
+      <String, String>{
+        'limit': limit.toString(),
+        'categoryId': categoryId.toString(),
+      },
     );
 
     final productResponse = await _httpClient.get(productRequest);

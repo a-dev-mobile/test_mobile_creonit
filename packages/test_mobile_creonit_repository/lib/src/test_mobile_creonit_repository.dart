@@ -13,14 +13,14 @@ class TestMobileCreonitRepository {
       : _apiClient = apiClient ?? VueStudyApiClient();
 
   Future<List<Category>> getCategory() async {
-    final data = await _apiClient.categoryFetch();
+    final data = await _apiClient.fetchCategoies();
     return data.map((item) {
-      return Category(title: item.title);
+      return Category(title: item.title, id: item.id);
     }).toList();
   }
 
-  Future<List<Product>> getProduct({int limit = 0}) async {
-    final data = await _apiClient.productFetch(limit: limit);
+  Future<List<Product>> getProduct({int limit = 0,int categoryId = 0}) async {
+    final data = await _apiClient.fetchProducts(limit: limit,categoryId: categoryId);
     return data.map((item) {
       return Product(
         title: item.title,

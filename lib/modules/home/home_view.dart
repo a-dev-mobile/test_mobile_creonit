@@ -12,6 +12,8 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return GetRouterOutlet.builder(
+
+      
       builder: (context, delegate, currentRoute) {
         final currentLocation = currentRoute?.location;
         var currentIndex = 0;
@@ -32,6 +34,7 @@ class HomePage extends GetView<HomeController> {
           currentIndex = 4;
         }
         return Scaffold(
+            //  appBar: AppBar(title: const Text('Главная'), ),
           body: GetRouterOutlet(
             initialRoute: Routes.DASHBOARD,
               anchorRoute: Routes.HOME,
